@@ -1,0 +1,46 @@
+Notes from 8.31 on React Pt. 3
+
+Hooks
+-in react, hooks are functions that start with the word 'use'
+    *Rules
+        1. Hooks can only be defined in component bodies (within the const App = () => { this area })
+            *do not define hooks either in the return or outside of the component
+        2. You cannot conditionally render hooks
+            *using an if statement, for ex.
+            *will get an error: invalid hook
+    ***basically, hooks cannot be global
+
+
+Fetching
+-you use awai before fetch to make the data not a pending promise and make it a value
+-you want to fetch inside of a function, not in the global scope
+-never make components async
+-whenever you make an  component aysnc it's return value is always a promise (and we don't like this) and react won't know how to render it because it's a promise
+    *because a promise is something that will occur eventually but you don't know when 
+    *solution to this! useEffect
+
+
+useEffect
+-get's called only once
+-getls called when your component renders onto the screen
+-put it before any return
+-takes in 2 args
+    1. a function
+    2. a dependency array
+
+    ex. useEffect(() => {
+
+    }, []);
+
+-for an onClick example, it only console.logs once, so its the perfect place to have a fetch call 
+-useEffect cannot be async, but you can put an async function INSIDE 
+
+Component Lifecycle
+-we refresh the page
+-our react cojmponents mount
+-use.Effect this fuinction gets called when our components mount
+
+Dependency Array
+-take in states
+-when you have something in the array, whenever the state changes the useEffect will be called again (componentDidUpdate)
+-when you have an empty dependency array the useEffect will only get called once (componentDidMount)
