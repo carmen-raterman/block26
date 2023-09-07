@@ -17,6 +17,14 @@ export default function ContactList() {
             </tr>
             {
                // Map over data here
+               ContactList.map(contact => (
+                //for each contact item we want another row
+                <tr>
+                    <td>{contact.name}</td>
+                    <td>{contact.name}</td>
+                    <td>{contact.name}</td>
+                </tr>
+               ))
              }
           </tbody>
         </table>
